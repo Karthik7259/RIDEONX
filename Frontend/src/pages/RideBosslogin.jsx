@@ -1,20 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { RideBossDataContext } from '../context/RideBossContext'
+
 const RideBosslogin = () => {
+ 
   const [email, setEmail] = useState('')
      const [password, setPassword] = useState('')
-     const [RideBossData, setRideBossData] = useState('')
-     const submitHandler = (e) => {
-         setRideBossData({
+ 
+     const { Rideboss ,setRideBoss}=useContext(RideBossDataContext)
+   const  navigate=useNavigate()
+
+    const submitHandler =async (e) => {
+      e.preventDefault(); 
+    const Rideboss={
           email: email,
           password: password
-         })
+         }
+     const response=await axios.post(`${import.meta.env.VITE_BASE_URL}/Rider/login`,Rideboss)
+   if(response.status===200){
+   const data=response.data;
+   setRideBoss(data.Rideboss);
+   localStorage.setItem('token',data.token);
+   navigate('/RideBoss-home')
+   }
         setEmail('')
-        setPassword('')
-        e.preventDefault()
-      }
-  return (
+        setPassword('')  
+}
+return (
     <div className='p-7 bg-cover bg-[url("/RidebossSingup.webp")] flex flex-col justify-between h-screen'>
     <div>
        <img className="w-33 h-20 mb-3 " src="/RideBosslogo1.png" alt="" />

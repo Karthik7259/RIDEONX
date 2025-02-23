@@ -1,0 +1,20 @@
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjgzOGM0MjE0NGVmMGJiNWVlNDI5ZiIsImlhdCI6MTc0MDEyNjQwNCwiZXhwIjoxNzQwMjEyODA0fQ.9gyV_igMcxjBHCV64LFtINc6ZEtAej5PZ0k2X7C0C4o",
+    "RideBoss": {
+        "fullname": {
+            "firstname": "Jane",
+            "lastname": "Doe"
+        },
+        "email": "jane.doe@example.com",
+        "password": "$2b$10$S1O.YJ8RkublBYUbgG91j.pbhpV.e3qB6SUMw/3bFDLSzlaRp7aly",
+        "status": "inactive",
+        "vechicle": {
+            "color": "Red",
+            "plate": "MP 04 XY 6204",
+            "capacity": 4,
+            "vechicleType": "car"
+        },
+        "_id": "67b838c42144ef0bb5ee429f",
+        "__v": 0
+    }
+}
