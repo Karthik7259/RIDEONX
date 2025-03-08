@@ -37,7 +37,7 @@ const RideBossSchema =   new mongoose.Schema({
         status:{    
             type:String,
             enum:['active','inactive'],
-            default:'inactive',
+            default:'active',
         },
         vechicle:{
            color:{
@@ -61,16 +61,18 @@ const RideBossSchema =   new mongoose.Schema({
                 enum:['Car','Bike','Auto'],
            }
         },
-        location:{  
-            lat:{
-                type:Number,
-                
+        location: {
+            type: {
+                type: String, 
+                enum: ["Point"], 
+                 // Ensure "type" is always provided
             },
-            lng:{
-                type:Number,
+            coordinates: {
+                type: [Number], 
+                 // Ensure coordinates are always provided
                 
-            },
-        },
+            }
+        }
 
 
     });
@@ -88,6 +90,7 @@ RideBossSchema.statics.hashPassword = async function(password){
     return await bcrypt.hash(password,10);
 }
     
+RideBossSchema.index({ location: "2dsphere" });
 const RideBossModel = mongoose.model('RideBoss',RideBossSchema);
 
 export default RideBossModel;

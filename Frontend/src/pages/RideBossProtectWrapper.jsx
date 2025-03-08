@@ -9,15 +9,10 @@ const RideBossProtectWrapper = ({
     const navigate=useNavigate()
     const {RideBoss,setRideBoss}= useContext(RideBossDataContext)
     const [isLoading,setIsLoading]=useState(true)
-    useEffect(()=>{
-
-
-
+useEffect(()=>{
     if(!token){
         navigate('/RideBoss-login')
     }
-   },[token])
-
    axios.get(`${import.meta.env.VITE_BASE_URL}/Rider/profile`,{
     headers:{
         Authorization: `Bearer ${token}`,
@@ -35,6 +30,7 @@ const RideBossProtectWrapper = ({
     localStorage.removeItem('token')
     navigate('/RideBoss-login')
    })
+},[token])
 
    if(isLoading){
     return(

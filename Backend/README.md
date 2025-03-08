@@ -286,8 +286,37 @@ curl -X GET http://localhost:3000/rideboss/logout \
 ```
 
 ### Example Response
+
+
 ```json
 {
   "message": "Logged out successfully"
 }
 ```
+
+
+### Get Fare
+- **URL:** `/rides/get-fare`
+- **Method:** `GET`
+- **Headers:**
+  - `Authorization: Bearer <jwt_token>`
+- **Query Parameters:**
+  - `pickup` (string, required, min: 3) - The pickup location.
+  - `destination` (string, required, min: 3) - The destination location.
+
+### Example Request
+```bash
+curl -X GET http://localhost:3000/rides/get-fare \
+-H "Authorization: Bearer <jwt_token>" \
+-H "Content-Type: application/json" \
+-d '{
+  "pickup": "123 Main St",
+  "destination": "456 Elm St"
+}'
+
+{
+  "fare": {
+    "auto": 50.0,
+    "car": 100.0,
+    "bike": 30.0
+  }

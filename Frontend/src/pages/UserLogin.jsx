@@ -33,7 +33,11 @@ const UserLogin = () => {
     }
 
   return (
-    <div className='p-7 flex flex-col justify-between h-screen'>
+      <div 
+  className="p-7 flex flex-col justify-between h-screen bg-cover bg-center bg-no-repeat" 
+  style={{ backgroundImage: "url('/public/ridexhome.webp')" }}
+>
+
               <div>
                  <img className="w-35 h-20 mb-3" src="/logo2.png" alt="" />
       <form onSubmit={(e)=>{
@@ -71,6 +75,7 @@ const UserLogin = () => {
       className='bg-[#111] text-white  font-semibold mb-2 rounded px-4 py-2  w-full text-lg placeholder:text-base'
       >Login</button>
       </form>
+      
       <p className='text-center'>New here? <Link to='/signup' className='text-blue-600 '>Create new Account</Link></p>
              </div>
              <div>
